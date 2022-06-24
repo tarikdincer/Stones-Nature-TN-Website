@@ -205,5 +205,7 @@ body {
     .navbar img {
         width: auto;
         height: auto;
-        max-height: 240px;
+        max-height: 120px;
     }
+
+    

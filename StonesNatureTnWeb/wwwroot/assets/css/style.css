@@ -373,16 +373,17 @@ p {
           margin: 5px 0; } }
       .header-area .navbar .navbar-nav .nav-item a {
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 400;
         color: #777;
         -webkit-transition: all 0.4s ease-out 0s;
         -moz-transition: all 0.4s ease-out 0s;
         -ms-transition: all 0.4s ease-out 0s;
         -o-transition: all 0.4s ease-out 0s;
         transition: all 0.4s ease-out 0s; }
-        .header-area .navbar .navbar-nav .nav-item.active a, .header-area .navbar .navbar-nav .nav-item:hover a {
-            color: #54BAB9;
-        }
+.header-area .navbar .navbar-nav .nav-item.active a, .header-area .navbar .navbar-nav .nav-item:hover a {
+    /*color: #54BAB9;*/
+    color: black;
+}
 .dropdown-menu a {
     color: #777 !important;
     font-size: 16px !important;
@@ -390,11 +391,24 @@ p {
 }
 
     .dropdown-menu a:hover {
-        color: #54BAB9 !important;
+        /*color: #54BAB9 !important;*/
+        color: black !important;
     }
 /*===========================
     3.SLIDER css 
 ===========================*/
+@media only screen and (max-width: 990px) {
+    .slider-area {
+        padding-top: 100px;
+        margin-top: 80px;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .slider-area {
+        padding-top: 20px;
+    }
+}
 .slider-active .slick-dots {
   position: absolute;
   top: 50%;
@@ -428,10 +442,10 @@ p {
   position: relative; }
   @media only screen and (min-width: 1400px) {
     .single-slider {
-      padding: 0 100px; } }
+      padding: 0 0px; } }
   @media only screen and (min-width: 1200px) and (max-width: 1400px) {
     .single-slider {
-      padding: 0 30px; } }
+      padding: 0 0px; } }
   .single-slider .slider-bg {
     background-color: #fffaf6; }
   .single-slider .slider-product-image img {
@@ -465,9 +479,14 @@ p {
       font-size: 18px;
       font-weight: 600;
       line-height: 33px; }
-  .single-slider .slider-product-content {
+.single-slider .slider-product-content {
     max-width: 670px;
-    margin-left: 125px; }
+    margin-left: 125px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
     @media only screen and (min-width: 992px) and (max-width: 1200px) {
       .single-slider .slider-product-content {
         margin-left: 100px; } }
