@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Category category = ViewData["Category"] as Category;
     IEnumerable<Product> products = ViewData["Products"] as IEnumerable<Product>;
     ViewData["Title"] = category != null ? category.Name : "Stone Nature Tn";
@@ -11,30 +10,32 @@
 }*@
 
 <section class="section-products pt-100">
-		<div class="container pb-130 mt-100">
-				<div class="row justify-content-center text-center">
-						<div class="col-md-8 col-lg-6">
-								<div class="header">
-										<h2>@category.Name</h2>
-								</div>
-						</div>
-				</div>
-				<div class="row">
-						<!-- Single Product -->
-						@foreach(Product product in products){
-							<div class="col-md-12 col-lg-6 col-xl-4">
-									<div id="product-1" style="background: url(@product.ImagePath) no-repeat center; background-size:cover;"class="single-product">
-										
-										<div class="part-1">
-													
-											</div>
-											<div class="part-2">
-													<h3 class="product-title text-center">@product.Name</h3>
-											</div>
-									</div>
-							</div>
-						}
-				</div>
-		</div>
+    <div class="container pb-130 mt-100">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="header">
+                    <h2>@category.Name</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Product -->
+            @foreach (Product product in products)
+            {
+                <div class="col-md-12 col-lg-6 col-xl-4 text-center">
+                    <div id="product-1" style="background: url(@product.ImagePath) no-repeat center; background-size:cover;" class="single-product">
+                        <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">
+                            <div class="part-1">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title text-center">@product.Name</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
 </section>
 

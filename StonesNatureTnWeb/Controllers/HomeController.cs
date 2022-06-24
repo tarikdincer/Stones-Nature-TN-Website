@@ -18,6 +18,8 @@ namespace StonesNatureTnWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Categories"] = _db.Categories.ToList();
+            ViewData["Products"] = _db.Products.ToList();
             return View();
         }
 

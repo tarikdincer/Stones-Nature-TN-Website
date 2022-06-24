@@ -16,4 +16,35 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\2\" />
+    <Folder Include="wwwroot\images\products\3\" />
+    <Folder Include="wwwroot\images\products\4\" />
+    <Folder Include="wwwroot\images\products\5\" />
+    <Folder Include="wwwroot\images\products\6\" />
+    <Folder Include="wwwroot\images\products\7\" />
+    <Folder Include="wwwroot\images\products\8\" />
+    <Folder Include="wwwroot\images\products\9\" />
+    <Folder Include="wwwroot\images\products\10\" />
+    <Folder Include="wwwroot\images\products\11\" />
+    <Folder Include="wwwroot\images\products\12\" />
+    <Folder Include="wwwroot\images\products\13\" />
+    <Folder Include="wwwroot\images\products\14\" />
+    <Folder Include="wwwroot\images\products\15\" />
+    <Folder Include="wwwroot\images\products\16\" />
+    <Folder Include="wwwroot\images\products\17\" />
+    <Folder Include="wwwroot\images\products\18\" />
+    <Folder Include="wwwroot\images\products\19\" />
+    <Folder Include="wwwroot\images\products\20\" />
+    <Folder Include="wwwroot\images\products\21\" />
+    <Folder Include="wwwroot\images\products\22\" />
+    <Folder Include="wwwroot\images\products\23\" />
+    <Folder Include="wwwroot\images\products\24\" />
+    <Folder Include="wwwroot\images\products\25\" />
+    <Folder Include="wwwroot\images\products\26\" />
+    <Folder Include="wwwroot\images\products\27\" />
+    <Folder Include="wwwroot\images\products\28\" />
+    <Folder Include="wwwroot\images\products\29\" />
+  </ItemGroup>
+
 </Project>

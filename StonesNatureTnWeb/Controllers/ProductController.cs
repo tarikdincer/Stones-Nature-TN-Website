@@ -14,7 +14,7 @@ namespace StonesNatureTnWeb.Controllers
 
         public IActionResult Index(int productId)
         {
-            ViewData["Product"] = _db.Categories.Find(productId);
+            ViewData["Product"] = _db.Products.Find(productId);
             ViewData["ProductImages"] = _db.ProductImages.Where(p => p.ProductId == productId).ToList();
             ViewData["ProductDetails"] = _db.ProductDetail.Where(p => p.ProductId == productId).ToList();
             ViewData["ProductSizes"] = _db.ProductSize.Where(p => p.ProductId == productId).ToList();

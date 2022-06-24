@@ -1,0 +1,161 @@
+﻿@{
+    Product product = ViewData["Product"] as Product;
+    IEnumerable<ProductImage> productImages = ViewData["ProductImages"] as IEnumerable<ProductImage>;
+    IEnumerable<ProductDetail> productDetails = ViewData["ProductDetails"] as IEnumerable<ProductDetail>;
+    IEnumerable<ProductSize> productSizes = ViewData["ProductSizes"] as IEnumerable<ProductSize>;
+    ViewData["Title"] = product != null ? product.Name : "Stone Nature Tn";
+}
+@section Scripts
+    {
+    <script>
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var dots = document.getElementsByClassName("slide-thumbnail");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            console.log(slideIndex);
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                // slides[i].style.display = "inline";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            // slides[slideIndex-1].style.display = "inline";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        } var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var dots = document.getElementsByClassName("slide-thumbnail");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            console.log(slideIndex);
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                // slides[i].style.display = "inline";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            // slides[slideIndex-1].style.display = "inline";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+}
+
+    @*<div>@product.Name</div>*@
+
+<section class="section-images pt-100">
+        <div class="container pb-30 mt-100" style="position:relative;">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="header">
+                        <h2>@product.Name</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- main images -->
+            <div class="holder">
+                @foreach (ProductImage productImage in productImages)
+            {
+                <div class="slides">
+                    <img src="@productImage.ImagePath" alt="" />
+                </div>
+            }
+        </div>
+
+        <div class="prevContainer">
+            <a class="prev" onclick="plusSlides(-1)">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="nextContainer">
+            <a class="next" onclick="plusSlides(1)">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <!-- thumnails in a row -->
+        <div class="row">
+            @{
+                int i = 1;
+                foreach (ProductImage productImage in productImages)
+                {
+                    <div class="column">
+                        <img class="slide-thumbnail" src="@productImage.ImagePath" onclick="currentSlide(@i)" alt="">
+                    </div>
+                    i++;
+                }
+
+            }
+        </div>
+
+    </div>
+</section>
+
+<section class="section-product-details">
+    <div class="container pb-100 mb-100">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12 col-lg-6 mb-30">
+                <div class="header mb-1">
+                    <h3>Product Details</h3>
+                    @foreach(ProductDetail productDetail in productDetails)
+                    {
+                        <div class="product-detail-item mb-1">@productDetail.Detail</div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 mb-30">
+                <div class="header mb-5">
+                    <h3>Available Sizes</h3>
+                    @foreach(ProductSize productSize in productSizes)
+                    {
+                        <div class="product-size-item mb-1">@productSize.Size</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
