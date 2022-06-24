@@ -33,11 +33,66 @@
     
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="assets/css/responsive.css">
+
+     <script type="text/javascript">
+//	window.addEventListener("resize", function() {
+//		"use strict"; window.location.reload(); 
+//	});
+
+
+	document.addEventListener("DOMContentLoaded", function(){
+        
+    	/////// Prevent closing from click inside dropdown
+		document.querySelectorAll('.dropdown-menu').forEach(function(element){
+			element.addEventListener('click', function (e) {
+			  e.stopPropagation();
+			});
+		})
+
+
+
+		// make it as accordion for smaller screens
+		if (window.innerWidth < 992) {
+
+			// close all inner dropdowns when parent is closed
+			document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+				everydropdown.addEventListener('hidden.bs.dropdown', function () {
+					// after dropdown is hidden, then find all submenus
+					  this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+					  	// hide every submenu as well
+					  	everysubmenu.style.display = 'none';
+					  });
+				})
+			});
+			
+			document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+				element.addEventListener('click', function (e) {
+		
+				  	let nextEl = this.nextElementSibling;
+				  	if(nextEl && nextEl.classList.contains('submenu')) {	
+				  		// prevent opening link if link needs to open dropdown
+				  		e.preventDefault();
+				  		console.log(nextEl);
+				  		if(nextEl.style.display == 'block'){
+				  			nextEl.style.display = 'none';
+				  		} else {
+				  			nextEl.style.display = 'block';
+				  		}
+
+				  	}
+				});
+			})
+		}
+		// end if innerWidth
+
+	}); 
+	// DOMContentLoaded  end
+</script>
 </head>
 <body>
      <!--====== HEADER PART START ======-->
-    
-    <header class="header-area">
+    @await Component.InvokeAsync("Navbar")
+    @*<header class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -54,25 +109,35 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a data-scroll-nav="0" href="#home">Home</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#home">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle no-collapse" href="#" data-bs-toggle="dropdown">Products</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item no-collapse" href="#"> Pavers &raquo; </a>
+                                            <ul class="submenu dropdown-menu">
+				                                <li><a class="dropdown-item" href="#">Submenu item 1</a></li>
+				                                <li><a class="dropdown-item" href="#">Submenu item 2</a></li>
+				                                <li><a class="dropdown-item" href="#">Submenu item 3</a></li>
+				                                <li><a class="dropdown-item" href="#">Submenu item 4</a></li>
+				                             </ul>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#product">Products</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#service">Services</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#service">Services</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#showcase">Portfolio</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#showcase">Portfolio</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#team">Team</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#team">Team</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#blog">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#blog">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a data-scroll-nav="0" href="#contact">Contact</a>
+                                    <a class="nav-link" data-scroll-nav="0" href="#contact">Contact</a>
                                 </li>
                             </ul> <!-- navbar nav -->
                         </div>
@@ -80,7 +145,7 @@
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
-    </header>
+    </header>*@
     
     <!--====== HEADER PART ENDS ======-->
     @*<header>
@@ -120,7 +185,7 @@
     
     <footer id="footer" class="footer-area">
         <div class="container">
-            <div class="footer-widget pt-75 pb-120">
+            <div class="footer-widget pt-10 pb-120">
                 <div class="row">
                     <div class="col-lg-3 col-md-5 col-sm-7">
                         <div class="footer-logo mt-40">
@@ -239,6 +304,7 @@
     
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
