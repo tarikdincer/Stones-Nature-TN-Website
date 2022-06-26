@@ -205,7 +205,7 @@ body {
 .navbar img {
     width: auto;
     height: auto;
-    max-height: 120px;
+    max-height: 80px;
 }
 
 .section-images {
@@ -245,7 +245,7 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 50%;
-    transform: translate(0, calc(-50% - 54px));
+    /*transform: translate(0, calc(-50% - 54px));*/
     height: 54px;
     width: 54px;
     cursor: pointer;
@@ -292,6 +292,15 @@ body {
     float: right;
     margin-bottom: 5px;
     /*margin-right: 12px;*/
+}
+
+.nextContainer .next{
+    margin-right: 12px;
+}
+
+.prevContainer .prev {
+    margin-top: 0px;
+    margin-left: 12px;
 }
 
 /* Container for image text */
@@ -372,4 +381,24 @@ body {
 .product-size-item {
     font-size: 1.2rem;
     font-weight: 700;
+}
+.showcase-active .next {
+    transform: none;
+    height: unset;
+    width: unset;
+    float: unset;
+    margin-bottom: unset;
+}
+
+.showcase-active .prev {
+    transform: none;
+    height: unset;
+    width: unset;
+    float: unset;
+    margin-bottom: unset;
+    margin-top: unset;
+}
+
+.section-about p{
+    line-height: 40px;
 }

@@ -493,7 +493,7 @@ p {
 @media only screen and (max-width: 990px) {
     .slider-area {
         padding-top: 100px;
-        margin-top: 80px;
+        /*margin-top: 80px;*/
     }
 }
 
@@ -1850,7 +1850,7 @@ p.form-message.error {
     }
 
     .single-footer-info .footer-info-content {
-        padding-left: 80px;
+        /*padding-left: 80px;*/
     }
 
 .footer-copyright {

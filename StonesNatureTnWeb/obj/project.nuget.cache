@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GYErhMNBLPFeCvC/7rRWN9tRgLygIEsVnzKigAC6BIyOOSJ6WN3iCyeSJZ8xT1n4ybK8Ucg1SGhx5ZyKcCd+fw==",
+  "dgSpecHash": "ziyNsCBU2ClZTFazqRYwf1GR6x4Z1A2GVD63MuF/A1QUuS/vTr0Cl9hNOswqg7CDfV9tUrRrjlSIydapJrPyWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
+  "projectFilePath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tarik\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tarik\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj": {}
+    "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj": {
+    "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
+        "projectUniqueName": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
         "projectName": "StonesNatureTnWeb",
-        "projectPath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
+        "projectPath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\StonesNatureTnWeb.csproj",
         "packagesPath": "C:\\Users\\Tarik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTn\\StonesNatureTnWeb\\obj\\",
+        "outputPath": "C:\\Users\\Tarik\\Desktop\\Personal_Projects\\StonesNatureTN\\StonesNatureTnWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tarik\\AppData\\Roaming\\NuGet\\NuGet.Config",

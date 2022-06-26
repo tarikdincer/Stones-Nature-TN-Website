@@ -21,7 +21,7 @@
                     <div class="row no-gutters align-items-center ">
                         <div class="col-lg-12">
                             <div class="slider-product-images">
-                                <img src="images/slider/CBTPa_p8_2560x1920.jpg" alt="Slider">
+                                <img src="/images/slider/CBTPa_p8_2560x1920.jpg" alt="Slider">
                                 @*<div class="slider-discount-tag">
                                 <p>-50% <br> OFF</p>
                                 </div>*@
@@ -49,7 +49,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-12">
                             <div class="slider-product-image">
-                                <img src="images/slider/LSPa_p1_2560x1920.jpg" alt="Slider">
+                                <img src="/images/slider/LSPa_p1_2560x1920.jpg" alt="Slider">
                                 @*<div class="slider-discount-tag">
                                 <p>-20% <br> OFF</p>
                                 </div>*@
@@ -77,12 +77,12 @@
                         <div class="col-lg-12">
                             @*d-none d-md-block*@
                             <div class="slider-product-image">
-                                <img src="images/slider/LSPro_p1_2560x1920.jpg" alt="Slider">
+                                <img src="/images/slider/LSPro_p1_2560x1920.jpg" alt="Slider">
                                 @*<div class="slider-discount-tag">
                                 <p>FREE<br> QUOTE</p>
                                 </div>*@
                                 <div class="slider-product-content text-center">
-                                    <h1 class="slider-title mb-10" data-animation="fadeInUp" data-delay="0.3s"><span>Bianco Marble</span> <span>Pavers</span></h1>
+                                    <h1 class="slider-title mb-10" data-animation="fadeInUp" data-delay="0.3s"><span>Bianco</span> <span>Marble</span> <span>Pavers</span></h1>
                                     <p class="mb-25" data-animation="fadeInUp" data-delay="0.9s">Customizing your outdoor area with a properly planned pool deck and patio can make your house look more elegant.<br>Bianco marble pavers ensure a grand look.</p>
                                     <a class="main-btn" href="#" data-animation="fadeInUp" data-delay="1.5s">Explore More <i class="lni-chevron-right"></i></a>
                                 </div> <!-- slider product image -->
@@ -103,9 +103,8 @@
             <div class="row justify-content-end">
                 <div class="col-lg-7 col-md-6">
                     <ul class="social text-right">
-                        <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                        <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                        <li><a href="#"><i class="lni-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/Stone-Nature-TN-LLC-104426718978062/"><i class="lni-facebook-filled"></i></a></li>
+                        <li><a href="https://instagram.com/stonenaturetn?igshid=YmMyMTA2M2Y="><i class="lni-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -161,11 +160,18 @@
                                 {
                                     if (i == 0)
                                     {
-                                            <a class="active" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab" data-toggle="pill" href="#v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tab" aria-controls="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" aria-selected="true">@category.Name</a>
+                                        <a class="active" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab" data-toggle="pill" href="#v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tab" aria-controls="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" aria-selected="true">@category.Name</a>
                                     }
                                     else
                                     {
+                                        if (category.Name.Split(' ').Count() == 2)
+                                        {
+                                            <a id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab" data-toggle="pill" href="#v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tab" aria-controls="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" aria-selected="false" style="word-spacing: 9999999px;">@category.Name</a>
+                                        }
+                                        else
+                                        {
                                             <a id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab" data-toggle="pill" href="#v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tab" aria-controls="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" aria-selected="false">@category.Name</a>
+                                        }
                                     }
                                     i++;
                                 }
@@ -182,53 +188,53 @@
                             {
                                 if (j == 0)
                                 {
-                                        <div class="tab-pane fade show active" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tabpanel" aria-labelledby="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab">
-                                            <div class="product-items mt-30">
-                                                <div class="row product-items-active">
-                                                    @foreach (Product product in products)
+                                    <div class="tab-pane fade show active" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tabpanel" aria-labelledby="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab">
+                                        <div class="product-items mt-30">
+                                            <div class="row product-items-active">
+                                                @foreach (Product product in products)
                                                 {
                                                     if (product.CategoryId == category.Id)
                                                     {
-                                                            <div class="col-md-4">
-                                                                <div class="single-product-items">
-                                                                    <div class="product-item-image">
-                                                                        <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id"><img src="@product.ImagePath" alt="Product"></a>
-                                                                    </div>
-                                                                    <div class="product-item-content text-center mt-30">
-                                                                        <h5 class="product-title"><a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">@product.Name</a></h5>
-                                                                    </div>
-                                                                </div> <!-- single product items -->
-                                                            </div>
+                                                        <div class="col-md-4">
+                                                            <div class="single-product-items">
+                                                                <div class="product-item-image">
+                                                                    <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id"><img src="@product.ImagePath" alt="Product"></a>
+                                                                </div>
+                                                                <div class="product-item-content text-center mt-30">
+                                                                    <h5 class="product-title"><a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">@product.Name</a></h5>
+                                                                </div>
+                                                            </div> <!-- single product items -->
+                                                        </div>
                                                     }
                                                 }
-                                                </div> <!-- row -->
-                                            </div> <!-- product items -->
-                                        </div> <!-- tab pane -->
+                                            </div> <!-- row -->
+                                        </div> <!-- product items -->
+                                    </div> <!-- tab pane -->
                                 }
                                 else
                                 {
-                                        <div class="tab-pane fade" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tabpanel" aria-labelledby="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab">
-                                            <div class="product-items mt-30">
-                                                <div class="row product-items-active">
-                                                    @foreach (Product product in products)
+                                    <div class="tab-pane fade" id="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))" role="tabpanel" aria-labelledby="v-pills-@(category.Name.ToLower().Replace(" ","").Replace("&",""))-tab">
+                                        <div class="product-items mt-30">
+                                            <div class="row product-items-active">
+                                                @foreach (Product product in products)
                                                 {
                                                     if (product.CategoryId == category.Id)
                                                     {
-                                                            <div class="col-md-4">
-                                                                <div class="single-product-items">
-                                                                    <div class="product-item-image">
-                                                                        <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id"><img src="@product.ImagePath" alt="Product"></a>
-                                                                    </div>
-                                                                    <div class="product-item-content text-center mt-30">
-                                                                        <h5 class="product-title"><a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">@product.Name</a></h5>
-                                                                    </div>
-                                                                </div> <!-- single product items -->
-                                                            </div>
+                                                        <div class="col-md-4">
+                                                            <div class="single-product-items">
+                                                                <div class="product-item-image">
+                                                                    <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id"><img src="@product.ImagePath" alt="Product"></a>
+                                                                </div>
+                                                                <div class="product-item-content text-center mt-30">
+                                                                    <h5 class="product-title"><a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">@product.Name</a></h5>
+                                                                </div>
+                                                            </div> <!-- single product items -->
+                                                        </div>
                                                     }
                                                 }
-                                                </div> <!-- row -->
-                                            </div> <!-- product items -->
-                                        </div> <!-- tab pane -->
+                                            </div> <!-- row -->
+                                        </div> <!-- product items -->
+                                    </div> <!-- tab pane -->
                                 }
                                 j++;
                             }
@@ -259,14 +265,14 @@
                         Family has been doing their travertine, marble and onyx exporting to more than 20 countries in the world since 1996.
                     </p>
                 </div> <!-- section title -->
-                <a href="#" class="main-btn mt-30">Read More <i class="lni-chevron-right"></i></a>
+                <a asp-action="About" asp-controller="Home" class="main-btn mt-30">Read More <i class="lni-chevron-right"></i></a>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="services-left mt-45">
                     <div class="services">
-                        <img src="images/about/About_p1_2560x1701.jpg" alt="">
+                        <img src="/images/about/About_p1_2560x1701.jpg" alt="">
 
                     </div> <!-- services btn -->
                 </div> <!-- services left -->
@@ -301,47 +307,47 @@
             <div class="col-lg-12">
                 <div class="showcase-active mt-65">
                     <div class="single-showcase">
-                        <img src="images/showcase/1_cbt.jpg" alt="Testimonial">
+                        <img src="/images/showcase/1_cbt.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Cascade Blend FP Paver & 4"x12"x2" Pool Coping Marietta,GA USA</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/2_cbt.jpg" alt="Testimonial">
+                        <img src="/images/showcase/2_cbt.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Cascade Blend Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/3_cbt.jpg" alt="Testimonial">
+                        <img src="/images/showcase/3_cbt.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Cascade Blend Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/4_itp.jpg" alt="Testimonial">
+                        <img src="/images/showcase/4_itp.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Ivory Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/5_itp.jpg" alt="Testimonial">
+                        <img src="/images/showcase/5_itp.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Ivory Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/6_lsp.jpg" alt="Testimonial">
+                        <img src="/images/showcase/6_lsp.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Shellstone / Limestone</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/7_lsp.jpg" alt="Testimonial">
+                        <img src="/images/showcase/7_lsp.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Shellstone / Limestone</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/8_bm.jpg" alt="Testimonial">
+                        <img src="/images/showcase/8_bm.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Bianco Marble</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/9_lt.jpg" alt="Testimonial">
+                        <img src="/images/showcase/9_lt.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Leonardo Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/10_new.jpg" alt="Testimonial">
+                        <img src="/images/showcase/10_new.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Noce & Walnut Travertine</div>
                     </div> <!-- single showcase -->
                     <div class="single-showcase">
-                        <img src="images/showcase/11_st.jpg" alt="Testimonial">
+                        <img src="/images/showcase/11_st.jpg" alt="Testimonial">
                         <div class="main-btn" style="cursor:default;">Silver Travertine</div>
                     </div> <!-- single showcase -->
                 </div> <!-- showcase active -->
@@ -352,119 +358,50 @@
 
 <!--====== SHOWCASE PART ENDS ======-->
 <!--====== TEAM PART START ======-->
-
-<section id="team" class="team-area pt-125 pb-130">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="section-title text-center pb-25">
-                    <h3 class="title mb-15">Our Expert Team</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6 col-sm-8">
-                <div class="single-temp text-center mt-30">
-                    <div class="team-image">
-                        <img src="assets/images/team/t-1.jpg"
-                             alt="Team">
-                    </div>
-                    <div class="team-content mt-30">
-                        <h4 class="title mb-10"><a href="#">Celina Gomez</a></h4>
-                        <span>FOUNDER</span>
-                        <ul class="social mt-15">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div> <!-- single temp -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-8">
-                <div class="single-temp text-center mt-30">
-                    <div class="team-image">
-                        <img src="assets/images/team/t-2.jpg"
-                             alt="Team">
-                    </div>
-                    <div class="team-content mt-30">
-                        <h4 class="title mb-10"><a href="#">Patric Green</a></h4>
-                        <span>Consultant</span>
-                        <ul class="social mt-15">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div> <!-- single temp -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-8">
-                <div class="single-temp text-center mt-30">
-                    <div class="team-image">
-                        <img src="assets/images/team/t-3.jpg"
-                             alt="Team">
-                    </div>
-                    <div class="team-content mt-30">
-                        <h4 class="title mb-10"><a href="#">Mark Parker</a></h4>
-                        <span>Business Manager</span>
-                        <ul class="social mt-15">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div> <!-- single temp -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-8">
-                <div class="single-temp text-center mt-30">
-                    <div class="team-image">
-                        <img src="assets/images/team/t-4.jpg"
-                             alt="Team">
-                    </div>
-                    <div class="team-content mt-30">
-                        <h4 class="title mb-10"><a href="#">Daryl Dixon</a></h4>
-                        <span>Marketing Manager</span>
-                        <ul class="social mt-15">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div> <!-- single temp -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
 <!--====== TEAM PART ENDS ======-->
 <!--====== TESTIMONIAL PART START ======-->
 
-<section id="testimonial" class="testimonial-area pt-200">
-    <div class="testimonial-bg bg_cover" style="background-image: url(assets/images/testimonial/ts-bg.jpg)"></div>
+<section id="testimonial" class="testimonial-area pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-md-8">
-                <div class="testimonial-content">
+            <div class="col-lg-12 col-md-12">
+                <h3 style="text-align: center; margin-bottom:10px;">Customer Testimonials</h3>
+                <div class="testimonial-content" style="height: 550px;">
                     <div class="testimonial-active">
                         <div class="single-testimonial">
                             <i class="lni-quotation"></i>
-                            <p class="mb-30">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore et dolore magna aliqua.</p>
-                            <h6 class="title">Roma De Suza</h6>
-                            <span>- CEO, Tesla</span>
+                            <p class="mb-30">
+                                This is definitely one of the best companies out there,<br>and I would recommend it to anyone<br>who is looking for fast quality services at affordable cost.<br>
+                                Thanks for the amazing technical support and quality design!
+                            </p>
+                            <h6 class="title">Michael M.</h6>
+                            <span>- Customer</span>
                         </div> <!-- single testimonial -->
                         <div class="single-testimonial">
                             <i class="lni-quotation"></i>
-                            <p class="mb-30">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore et dolore magna aliqua.</p>
-                            <h6 class="title">Lisa White</h6>
-                            <span>- Designer, Walmart</span>
+                            <p class="mb-30">
+                                Being able to swim in a luxury swimming pool<br>
+                                at your own place is amazing!<br>
+                                And I know for sure that the quality of service<br>
+                                and technical experience of your company is the best.<br>
+                                Thank you for everything!
+                            </p>
+                            <h6 class="title">Garret J.</h6>
+                            <span>- Customer</span>
+                        </div> <!-- single testimonial -->
+                        <div class="single-testimonial">
+                            <i class="lni-quotation"></i>
+                            <p class="mb-30">
+                                It has been great working with your technical support<br>
+                                and amazing people who know what they do.<br>
+                                All my questions and requests were addressed effective immediately,<br>
+                                and I am so grateful for your service!
+                            </p>
+                            <h6 class="title">Andrew S.</h6>
+                            <span>- Customer</span>
                         </div> <!-- single testimonial -->
                     </div> <!-- testimonial active -->
                 </div> <!-- testimonial content -->
-            </div>
-            <div class="col-lg-7 col-md-4">
-                <div class="testimonial-play text-right d-none d-md-block">
-                    <a class="Video-popup" href="https://www.youtube.com/watch?v=l8ccw7BMrMA"><i class="lni-play"></i></a>
-                </div> <!-- testimonial play -->
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
@@ -472,109 +409,6 @@
 
 <!--====== TESTIMONIAL PART ENDS ======-->
 <!--======  BLOG PART START ======-->
-
-<section id="blog" class="blog-area pt-125">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="section-title text-center pb-25">
-                    <h3 class="title mb-15">From The Blog</h3>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog mt-30">
-                    <div class="blog-image">
-                        <img src="assets/images/blog/b-1.jpg" alt="Blog">
-                    </div>
-                    <div class="blog-content">
-                        <div class="content">
-                            <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
-                            <span>25 JULY, 2022</span>
-                        </div>
-                        <div class="meta d-flex justify-content-between align-items-center">
-                            <div class="meta-admin d-flex align-items-center">
-                                <div class="image">
-                                    <a href="#"><img src="assets/images/blog/admin.jpg" alt="Admin"></a>
-                                </div>
-                                <div class="admin-title">
-                                    <h6 class="title"><a href="#">J. PARKER</a></h6>
-                                </div>
-                            </div>  <!-- meta admin -->
-                            <div class="meta-icon">
-                                <ul>
-                                    <li><a href="#"><i class="lni-share"></i></a></li>
-                                    <li><a href="#"><i class="lni-heart"></i></a></li>
-                                </ul>
-                            </div> <!-- meta icon -->
-                        </div> <!-- meta -->
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog mt-30">
-                    <div class="blog-image">
-                        <img src="assets/images/blog/b-2.jpg" alt="Blog">
-                    </div>
-                    <div class="blog-content">
-                        <div class="content">
-                            <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
-                            <span>25 JULY, 2022</span>
-                        </div>
-                        <div class="meta d-flex justify-content-between align-items-center">
-                            <div class="meta-admin d-flex align-items-center">
-                                <div class="image">
-                                    <a href="#"><img src="assets/images/blog/admin.jpg" alt="Admin"></a>
-                                </div>
-                                <div class="admin-title">
-                                    <h6 class="title"><a href="#">J. PARKER</a></h6>
-                                </div>
-                            </div>  <!-- meta admin -->
-                            <div class="meta-icon">
-                                <ul>
-                                    <li><a href="#"><i class="lni-share"></i></a></li>
-                                    <li><a href="#"><i class="lni-heart"></i></a></li>
-                                </ul>
-                            </div> <!-- meta icon -->
-                        </div> <!-- meta -->
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog mt-30">
-                    <div class="blog-image">
-                        <img src="assets/images/blog/b-3.jpg" alt="Blog">
-                    </div>
-                    <div class="blog-content">
-                        <div class="content">
-                            <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
-                            <span>25 JULY, 2022</span>
-                        </div>
-                        <div class="meta d-flex justify-content-between align-items-center">
-                            <div class="meta-admin d-flex align-items-center">
-                                <div class="image">
-                                    <a href="#"><img src="assets/images/blog/admin.jpg" alt="Admin"></a>
-                                </div>
-                                <div class="admin-title">
-                                    <h6 class="title"><a href="#">J. PARKER</a></h6>
-                                </div>
-                            </div>  <!-- meta admin -->
-                            <div class="meta-icon">
-                                <ul>
-                                    <li><a href="#"><i class="lni-share"></i></a></li>
-                                    <li><a href="#"><i class="lni-heart"></i></a></li>
-                                </ul>
-                            </div> <!-- meta icon -->
-                        </div> <!-- meta -->
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
 <!--======  BLOG PART ENDS ======-->
 <!--====== CONTACT PART START ======-->
 
@@ -599,7 +433,7 @@
                                         <i class="lni-phone-handset"></i>
                                     </div>
                                     <div class="info-content">
-                                        <p>+88 1234 56789</p>
+                                        <p>615 664 0820</p>
                                     </div>
                                 </div> <!-- single info -->
                             </li>
@@ -609,7 +443,7 @@
                                         <i class="lni-envelope"></i>
                                     </div>
                                     <div class="info-content">
-                                        <p>contact@yourmail.com</p>
+                                        <p>info@stonesnaturetn.com</p>
                                     </div>
                                 </div> <!-- single info -->
                             </li>
@@ -619,7 +453,7 @@
                                         <i class="lni-home"></i>
                                     </div>
                                     <div class="info-content">
-                                        <p>203, Envato Labs, Behind Alis Steet,Australia</p>
+                                        <p>1122 Foster Ave. Ste 100 Nashville, TN 37210</p>
                                     </div>
                                 </div> <!-- single info -->
                             </li>
@@ -628,7 +462,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-form">
-                        <form id="contact-form" action="assets/contact.php" method="post" data-toggle="validator">
+                        <form id="contact-form" asp-controller="Home" asp-action="ContactSendEmail" method="post" data-toggle="validator">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="single-form form-group">
